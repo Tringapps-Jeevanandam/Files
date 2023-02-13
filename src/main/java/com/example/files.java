@@ -3,12 +3,15 @@ package com.example;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.logging.Logger;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-public class files {
+public class Files {
+  public static final Logger Log = Logger.getLogger("InfoLogging");
+
   public static void main(String[] args) throws IOException {
     String fileName = "C:/Users/Jeevanandam/Desktop/newfile.txt";
     Map<String, Integer> wordCounts = new HashMap<>();
@@ -38,7 +41,9 @@ public class files {
 
     while (!wordCountQueue.isEmpty()) {
       Map.Entry<String, Integer> entry = wordCountQueue.poll();
-      System.out.println("The word \"" + entry.getKey() + "\" appears " + entry.getValue() + " times.");
+      String print = "The word \"" + entry.getKey() + "\" appears " + entry.getValue() + " times.";
+      Log.info(print);
+
     }
   }
 }
